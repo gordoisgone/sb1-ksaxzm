@@ -9,7 +9,13 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  define: {
-    'import.meta.env.VITE_LUMAAI_API_KEY': JSON.stringify(process.env.VITE_LUMAAI_API_KEY)
-  }
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://api.lumalabs.ai',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
+  },
 })
