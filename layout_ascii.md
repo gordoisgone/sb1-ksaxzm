@@ -1,10 +1,3 @@
-# sb1-ksaxzm
-
-[Edit in StackBlitz next generation editor ⚡️](https://stackblitz.com/~/github.com/gordoisgone/sb1-ksaxzm)
-
-The current project is a storyboard editor for video production.
-
-Here is the project layout:
 SB1-KSAXZM/
 ├── .bolt
 ├── backups
@@ -12,9 +5,14 @@ SB1-KSAXZM/
 ├── node_modules
 ├── src
 │   ├── components
+│   │   ├── EffectsPanel.tsx
 │   │   ├── StoryboardImage.tsx
 │   │   ├── StoryboardPrompt.tsx
 │   │   ├── StoryboardSequence.tsx
+│   │   ├── Timeline.tsx
+│   │   ├── TimelineInterface.tsx
+│   │   ├── VideoPlayer.tsx
+│   │   ├── VideoUploader.tsx
 │   ├── utils
 │   │   ├── falAi.ts
 │   ├── App.tsx
@@ -34,4 +32,3 @@ SB1-KSAXZM/
 ├── tsconfig.json
 ├── tsconfig.node.json
 ├── vite.config.ts
-

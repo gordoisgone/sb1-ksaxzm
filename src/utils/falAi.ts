@@ -5,6 +5,10 @@ fal.config({
   credentials: import.meta.env.VITE_FAL_AI_API_KEY,
 });
 
+interface ImageResult {
+  images: { url: string }[];
+}
+
 export async function generateImages(prompt: string): Promise<string[]> {
   try {
     const result = await fal.subscribe("fal-ai/realistic-vision", {
@@ -29,15 +33,23 @@ export async function generateImages(prompt: string): Promise<string[]> {
         safety_checker_version: "v1"
       },
       logs: true,
-      onQueueUpdate: (update) => {
-        if (update.status === "IN_PROGRESS") {
-          update.logs.map((log) => log.message).forEach(console.log);
+      onQueueUpdate: (status: fal.QueueStatus) => {
+        if (status.status === "IN_PROGRESS" && status.logs) {
+          status.logs.forEach(log => console.log(log.message));
+        } else if (status.status === "COMPLETED" && status.logs) {
+          status.logs.forEach(log => console.log(log.message));
+          if (status.metrics && 'predict_time' in status.metrics) {
+            console.log("Prediction time:", status.metrics.predict_time);
+          }
         }
       },
-    });
+    }) as ImageResult;
 
-    // Assuming the result contains an array of image URLs
-    return result.images.map((image: any) => image.url);
+    if (result && 'images' in result && Array.isArray(result.images)) {
+      return result.images.map(image => image.url);
+    } else {
+      throw new Error('Unexpected result format');
+    }
   } catch (error) {
     console.error('Error generating images:', error);
     throw error;

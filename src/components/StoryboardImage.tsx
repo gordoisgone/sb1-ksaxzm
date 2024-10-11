@@ -1,23 +1,24 @@
 import React from 'react'
-import { Trash2 } from 'lucide-react'
 
 interface StoryboardImageProps {
-  src: string
-  onDelete: () => void
+  imageUrl: string;
+  isSelected: boolean;
+  onSelect: () => void;
 }
 
-const StoryboardImage: React.FC<StoryboardImageProps> = ({ src, onDelete }) => {
+const StoryboardImage: React.FC<StoryboardImageProps> = ({ imageUrl, isSelected, onSelect }) => {
   return (
-    <div className="relative group">
-      <img src={src} alt="Storyboard" className="w-full h-auto rounded-md shadow-md" />
-      <button
-        onClick={onDelete}
-        className="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-      >
-        <Trash2 size={16} />
-      </button>
+    <div
+      className={`relative rounded-lg overflow-hidden cursor-pointer ${
+        isSelected
+          ? 'ring-4 ring-selected-border' // Bright green border for selected images
+          : 'hover:ring-2 hover:ring-gray-300' // Hover effect for unselected images
+      }`}
+      onClick={onSelect}
+    >
+      <img src={imageUrl} alt="Storyboard frame" className="w-full h-auto" />
     </div>
-  )
-}
+  );
+};
 
 export default StoryboardImage
