@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { PlusCircle, Loader } from 'lucide-react'
 import StoryboardPrompt from './components/StoryboardPrompt'
 import StoryboardSequence from './components/StoryboardSequence'
-import TimelineInterface from './components/TimelineInterface'
+
 import { generateImages } from './utils/falAi'
 
 function App() {
