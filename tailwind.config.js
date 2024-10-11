@@ -6,7 +6,7 @@ module.exports = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-  ],
+	],
   theme: {
     container: {
       center: true,
@@ -51,6 +51,9 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
         'selected-border': '#00FF00', // Bright green color
+        'neon-green': '#00FF00',
+        'primary-dark': 'hsl(var(--primary-dark))',
+        'custom-gray': 'rgba(128, 128, 128, 0.6)', // This is 60% grey
       },
       borderRadius: {
         lg: "var(--radius)",
