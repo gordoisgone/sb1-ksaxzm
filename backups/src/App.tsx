@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import { PlusCircle, Loader } from 'lucide-react'
 import StoryboardPrompt from './components/StoryboardPrompt'
 import StoryboardSequence from './components/StoryboardSequence'

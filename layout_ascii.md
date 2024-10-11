@@ -1,28 +1,42 @@
 SB1-KSAXZM/
-├── .bolt
-├── backups
-├── dist
-├── node_modules
-├── src
-│   ├── components
-│   │   ├── EffectsPanel.tsx
+├── .bolt/
+├── backups/
+│   └── src/
+│       └── components/
+├── App.tsx
+├── dist/
+├── node_modules/
+├── src/
+│   ├── components/
+│   │   ├── ui/
+│   │   │   ├── button.tsx
+│   │   │   ├── dialog.tsx
+│   │   │   ├── drawer.tsx
+│   │   │   ├── input.tsx
+│   │   │   ├── sheet.tsx
+│   │   │   ├── toggle-group.tsx
+│   │   │   ├── toggle.tsx
+│   │   ├── SaveButton.tsx
 │   │   ├── StoryboardImage.tsx
 │   │   ├── StoryboardPrompt.tsx
-│   │   ├── StoryboardSequence.tsx
-│   │   ├── Timeline.tsx
-│   │   ├── TimelineInterface.tsx
-│   │   ├── VideoPlayer.tsx
-│   │   ├── VideoUploader.tsx
-│   ├── utils
-│   │   ├── falAi.ts
-│   ├── App.tsx
+│   │   ├── StoryboardSequence.tsx (M)
+│   │   ├── VideoGenerationPopup.tsx (M)
+│   ├── lib/
+│   └── utils/
+│       ├── falAi.ts
+│       ├── lumaApi.ts
+│   ├── App.tsx (M)
+│   ├── env.d.ts
+│   ├── fonts.ts
 │   ├── index.css
-│   ├── main.tsx
+│   ├── main.tsx (M)
 │   ├── vite-env.d.ts
 ├── .env
 ├── .gitignore
+├── components.json
 ├── eslint.config.js
 ├── index.html
+├── layout_ascii.md
 ├── package-lock.json
 ├── package.json
 ├── postcss.config.js
@@ -31,4 +45,4 @@ SB1-KSAXZM/
 ├── tsconfig.app.json
 ├── tsconfig.json
 ├── tsconfig.node.json
-├── vite.config.ts
+└── vite.config.ts

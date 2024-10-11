@@ -9,7 +9,7 @@ interface StoryboardSequenceProps {
   showControls: boolean
   selectedImages: Set<string>
   toggleImageSelection: (imageUrl: string) => void
-  onVideoButtonClick?: (imageUrl: string) => void  // Make this optional
+  onVideoButtonClick: (imageUrl: string) => void
 }
 
 const StoryboardSequence: React.FC<StoryboardSequenceProps> = ({ 
@@ -48,18 +48,16 @@ const StoryboardSequence: React.FC<StoryboardSequenceProps> = ({
                 />
               )}
             </AnimatePresence>
-            {onVideoButtonClick && (
-              <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                <Button
-                  variant="secondary"
-                  size="sm"
-                  className="h-5 text-xs px-2 py-0"
-                  onClick={() => onVideoButtonClick(imageUrl)}
-                >
-                  Video
-                </Button>
-              </div>
-            )}
+            <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+              <Button
+                variant="secondary"
+                size="sm"
+                className="h-6 text-xs px-2 py-0"
+                onClick={() => onVideoButtonClick(imageUrl)}
+              >
+                Video
+              </Button>
+            </div>
           </motion.div>
         ))}
       </div>
